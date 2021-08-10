@@ -1,14 +1,7 @@
 package addcustommodel.addcustommodel;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Villager;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityInteractEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.inventory.MerchantInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Addcustommodel extends JavaPlugin implements Listener {
@@ -26,12 +19,5 @@ public final class Addcustommodel extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-
-    @EventHandler
-    public void onEntityInv(InventoryOpenEvent e){
-        if (e.getInventory() instanceof MerchantInventory){
-            e.setCancelled(true);
-        }
     }
 }
