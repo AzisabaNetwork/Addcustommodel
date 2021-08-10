@@ -1,0 +1,24 @@
+name: Addcustommodel
+version: ${project.version}
+main: addcustommodel.addcustommodel.Addcustommodel
+api-version: 1.15
+authors: [46kuri_]
+description: LIFE plugin
+
+commands:
+  addcustommodel:
+    description: カスタムモデルデータ追加
+    permission: Addcustommodel.command.tex
+  acm:
+    description: カスタムモデルデータ追加
+    permission: Addcustommodel.command.tex
+  getcustommodel:
+    description: カスタムモデルデータ取得
+    permission: Addcustommodel.command.tex
+  gcm:
+    description: カスタムモデルデータ取得
+    permission: Addcustommodel.command.tex
+
+permissions:
+  Addcustommodel.command.tex:
+    default: op
