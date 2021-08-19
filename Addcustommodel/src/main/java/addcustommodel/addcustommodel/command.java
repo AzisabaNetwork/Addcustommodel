@@ -26,7 +26,7 @@ public class command implements CommandExecutor {
             }
             if (args.length <= 0) {
                 sender.sendMessage("コマンドを正しく入力してください");
-                return false;
+                return true;
             }
             try {
                 ItemStack item = p.getInventory().getItemInMainHand();
@@ -43,16 +43,12 @@ public class command implements CommandExecutor {
             }
         }
         if (cmd.getName().equalsIgnoreCase("getcustommodel") || cmd.getName().equalsIgnoreCase("gcm")) {
-            if (!sender.hasPermission("Addcustommodel.command.tex")) {
-                sender.sendMessage("コマンドを実行出来る権限がありません。");
-                return true;
-            }
+            if (!sender.hasPermission("Addcustommodel.command.tex")) return true;
             ItemStack item = p.getInventory().getItemInMainHand();
-            if (item.getType() == Material.AIR) return false;
+            if (item.getType() == Material.AIR) return true;
             ItemMeta meta = item.getItemMeta();
-            if (!meta.hasCustomModelData()) {
-                return false;
-            }
+            if (meta == null) return true;
+            if (!meta.hasCustomModelData()) return true;
             int id = meta.getCustomModelData();
             p.sendMessage("カスタムモデルデータ値は" + id + "です");
             return true;
