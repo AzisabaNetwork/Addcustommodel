@@ -10,10 +10,9 @@ public final class Addcustommodel extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         Bukkit.getServer().getPluginManager().registerEvents(this, this);
-        getCommand("addcustommodel").setExecutor(new command(this));
         getCommand("acm").setExecutor(new command(this));
-        getCommand("getcustommodel").setExecutor(new command(this));
         getCommand("gcm").setExecutor(new command(this));
+        getCommand("macm").setExecutor(new command(this));
     }
 
     @Override

@@ -19,7 +19,7 @@ public class command implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player p = (Player) sender;
-        if (cmd.getName().equalsIgnoreCase("addcustommodel") || cmd.getName().equalsIgnoreCase("acm")) {
+        if (cmd.getName().equalsIgnoreCase("acm")) {
             if (!sender.hasPermission("Addcustommodel.command.tex")) {
                 sender.sendMessage("コマンドを実行出来る権限がありません。");
                 return true;
@@ -42,7 +42,29 @@ public class command implements CommandExecutor {
                 return true;
             }
         }
-        if (cmd.getName().equalsIgnoreCase("getcustommodel") || cmd.getName().equalsIgnoreCase("gcm")) {
+        if (cmd.getName().equalsIgnoreCase("macm")) {
+            if (!sender.hasPermission("Addcustommodel.command.tex")) {
+                sender.sendMessage("コマンドを実行出来る権限がありません。");
+                return true;
+            }
+            if (args.length <= 0) {
+                sender.sendMessage("コマンドを正しく入力してください");
+                return true;
+            }
+            try {
+                ItemStack item = p.getInventory().getItemInMainHand();
+                ItemMeta meta = item.getItemMeta();
+                String target = args[0];
+                int id = Integer.parseInt(target);
+                assert meta != null;
+                meta.setCustomModelData(id);
+                item.setItemMeta(meta);
+                return true;
+            } catch (NullPointerException | NumberFormatException e) {
+                return true;
+            }
+        }
+        if (cmd.getName().equalsIgnoreCase("gcm")) {
             if (!sender.hasPermission("Addcustommodel.command.tex")) return true;
             ItemStack item = p.getInventory().getItemInMainHand();
             if (item.getType() == Material.AIR) return true;
