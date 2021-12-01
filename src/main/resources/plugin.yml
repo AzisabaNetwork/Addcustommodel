@@ -1,6 +1,6 @@
 name: Addcustommodel
 version: ${project.version}
-main: addcustommodel.addcustommodel.Addcustommodel
+main: com.github.sirokuri_.addcustommodel.Addcustommodel
 api-version: 1.15
 authors: [46kuri_]
 description: LIFE plugin
